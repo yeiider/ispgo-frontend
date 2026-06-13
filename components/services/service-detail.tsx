@@ -17,6 +17,7 @@ import {
   Hash,
   Satellite,
   MapPin,
+  RadioTower,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -190,6 +191,12 @@ export function ServiceDetail({ serviceId }: ServiceDetailProps) {
             <Activity className="h-4 w-4" />
             Actividad
           </TabsTrigger>
+          {service.sn && (
+            <TabsTrigger value="actions" className="gap-2 data-[state=active]:bg-card">
+              <RadioTower className="h-4 w-4" />
+              Acciones
+            </TabsTrigger>
+          )}
         </TabsList>
 
         {/* Overview Tab */}
@@ -353,8 +360,10 @@ export function ServiceDetail({ serviceId }: ServiceDetailProps) {
               </CardContent>
             </Card>
           )}
+        </TabsContent>
 
-          {/* SmartOLT Actions */}
+        {/* Actions Tab — Gestión de Equipo SmartOLT */}
+        <TabsContent value="actions" className="space-y-6">
           {service.sn && (
             <SmartOltActions
               serviceId={serviceId}
