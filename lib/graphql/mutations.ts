@@ -46,6 +46,61 @@ export const SUSPEND_SERVICE_MUTATION = `
   }
 `
 
+// SmartOLT Actions
+export const SMARTOLT_REBOOT_ONU_MUTATION = `
+  mutation SmartOltRebootOnu($externalId: String!) {
+    smartOltRebootOnu(external_id: $externalId) {
+      success
+      message
+    }
+  }
+`
+
+export const SMARTOLT_ENABLE_ONU_MUTATION = `
+  mutation SmartOltEnableOnu($sn: String!) {
+    smartOltEnableOnu(sn: $sn) {
+      success
+      message
+    }
+  }
+`
+
+export const SMARTOLT_DISABLE_ONU_MUTATION = `
+  mutation SmartOltDisableOnu($sn: String!) {
+    smartOltDisableOnu(sn: $sn) {
+      success
+      message
+    }
+  }
+`
+
+export const SMARTOLT_REMOVE_EQUIPMENT_MUTATION = `
+  mutation SmartOltRemoveEquipment($sn: String!) {
+    smartOltRemoveEquipment(sn: $sn) {
+      success
+      message
+    }
+  }
+`
+
+export const SMARTOLT_ENABLE_CATV_MUTATION = `
+  mutation SmartOltEnableCatv($externalId: String!) {
+    smartOltEnableCatv(external_id: $externalId) {
+      success
+      message
+    }
+  }
+`
+
+export const SMARTOLT_DISABLE_CATV_MUTATION = `
+  mutation SmartOltDisableCatv($externalId: String!) {
+    smartOltDisableCatv(external_id: $externalId) {
+      success
+      message
+    }
+  }
+`
+
 // Invoice Actions
 export const REGISTER_PAYMENT_MUTATION = `
   mutation RegisterPayment($invoiceId: ID!, $paymentMethod: String!, $notes: String) {

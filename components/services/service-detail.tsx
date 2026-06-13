@@ -27,6 +27,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import type { Service } from "@/lib/graphql/types"
 import { getService } from "@/app/actions/services"
 import { ActivateServiceButton, SuspendServiceButton } from "@/components/actions/service-status-actions"
+import { SmartOltActions } from "@/components/actions/smart-olt-actions"
 
 const statusConfig: Record<string, { label: string; color: string }> = {
   active: { label: "Activo", color: "bg-accent/20 text-accent border-accent/30" },
@@ -351,6 +352,15 @@ export function ServiceDetail({ serviceId }: ServiceDetailProps) {
                 </div>
               </CardContent>
             </Card>
+          )}
+
+          {/* SmartOLT Actions */}
+          {service.sn && (
+            <SmartOltActions
+              serviceId={serviceId}
+              sn={service.sn}
+              onActionSuccess={handleActionSuccess}
+            />
           )}
         </TabsContent>
 
